@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { apiGET } from "../../api";
+import { apiDELETE, apiGET } from "../../api";
 import UserTimeEntryList from "../../components/UserTimeEntryList/UserTimeEntryList";
 
 const TimeEntry: React.FC = () => {
@@ -19,16 +19,9 @@ const TimeEntry: React.FC = () => {
   }, [personId]);
 
   const handleDeleteTimeEntry = (timeEntryId: string) => {
-    fetch(`https://api.productive.io/api/v2/time_entries/${timeEntryId}`, {
-      method: "delete",
-      headers: {
-        "Content-Type": "application/vnd.api+json",
-        "X-Auth-Token": "98357a64-d0d6-45c5-ae66-d030016ccd58",
-        "X-Organization-Id": "20541",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => setUserTimeEntryList(json.data));
+    apiDELETE(
+      `https://api.productive.io/api/v2/time_entries/${timeEntryId}`
+    ).then((res) => setUserTimeEntryList(res.data));
   };
 
   return (
