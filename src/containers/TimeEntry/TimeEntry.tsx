@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { apiDELETE, apiGET } from "../../api";
+import { apiDELETE, apiGET, apiPOST } from "../../api";
+import AddNewEntry from "../../components/AddNewEntry/AddNewEntry";
 import UserTimeEntryList from "../../components/UserTimeEntryList/UserTimeEntryList";
 
 const TimeEntry: React.FC = () => {
@@ -19,13 +20,45 @@ const TimeEntry: React.FC = () => {
   }, [personId]);
 
   const handleDeleteTimeEntry = (timeEntryId: string) => {
-    apiDELETE(
-      `https://api.productive.io/api/v2/time_entries/${timeEntryId}`
-    ).then((res) => setUserTimeEntryList(res.data));
+    apiDELETE(`https://api.productive.io/api/v2/time_entries/${timeEntryId}`);
+  };
+
+  type taskT = {
+    note: string;
+    time: number;
+  };
+
+  const handleNewTask = (task: taskT) => {
+    let newTask = {
+      data: {
+        type: "time_entries",
+        attributes: {
+          note: task.note,
+          date: "2022-06-20",
+          time: task.time,
+        },
+        relationships: {
+          person: {
+            data: {
+              type: "people",
+              id: "271501",
+            },
+          },
+          service: {
+            data: {
+              type: "services",
+              id: "1687704",
+            },
+          },
+        },
+      },
+    };
+    apiPOST(`https://api.productive.io/api/v2/time_entries`, newTask);
   };
 
   return (
     <div>
+      <AddNewEntry handleNewTask={handleNewTask} />
       {userTimeEntryList.map((timeEntry, i) => (
         <UserTimeEntryList
           key={i}
