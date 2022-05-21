@@ -20,3 +20,16 @@ export const apiDELETE = async (url: string) => {
   });
   return data.json();
 };
+
+export const apiPOST = async (url: string, newTask: any) => {
+  const data = await fetch(url, {
+    method: "POST",
+    body: JSON.stringify(newTask),
+    headers: {
+      "Content-Type": "application/vnd.api+json",
+      "X-Auth-Token": "98357a64-d0d6-45c5-ae66-d030016ccd58",
+      "X-Organization-Id": "20541",
+    },
+  });
+  return data.json();
+};
