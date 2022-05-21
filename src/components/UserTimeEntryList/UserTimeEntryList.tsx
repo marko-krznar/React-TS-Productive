@@ -7,15 +7,22 @@ interface Props {
       time: number;
       date: string;
     };
+    id: string;
   };
+
+  handleDeleteTimeEntry: any;
 }
 
-const UserTimeEntry: React.FC<Props> = ({ timeEntry }) => {
+const UserTimeEntry: React.FC<Props> = ({
+  timeEntry,
+  handleDeleteTimeEntry,
+}) => {
   return (
     <div>
       <span>{timeEntry.attributes.note}</span>
       <span>{timeEntry.attributes.time} min</span>
       <span>{timeEntry.attributes.date}</span>
+      <button onClick={() => handleDeleteTimeEntry(timeEntry.id)}>x</button>
     </div>
   );
 };
