@@ -10,7 +10,7 @@ interface Props {
     id: string;
   };
 
-  handleDeleteTimeEntry: any;
+  handleDeleteTimeEntry: (arg: string) => void;
 }
 
 const UserTimeEntry: React.FC<Props> = ({
