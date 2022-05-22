@@ -71,6 +71,14 @@ input {
     margin-right: 0;
     margin-bottom: 0.5rem;
   }
+  button,
+  .btn {
+    &:hover {
+      cursor: pointer;
+      color: #f7f9fc;
+      background: #5d2bff;
+    }
+  }
 }
 
 @media (max-width: 576px) {
