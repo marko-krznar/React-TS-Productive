@@ -4,6 +4,8 @@ import AddNewEntry from "../../components/AddNewEntry/AddNewEntry";
 import UserTimeEntryList from "../../components/UserTimeEntryList/UserTimeEntryList";
 import "./style.scss";
 
+import { format } from "date-fns";
+
 type taskT = {
   note: string;
   time: string | number;
@@ -43,7 +45,7 @@ const TimeEntry: React.FC = () => {
         type: "time_entries",
         attributes: {
           note: task.note,
-          date: "2022-06-20",
+          date: format(new Date(), "yyyy-MM-dd"),
           time: task.time,
         },
         relationships: {
