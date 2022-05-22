@@ -7,13 +7,13 @@ interface Props {
 
 type taskT = {
   note: string;
-  time: number;
+  time: string | number;
 };
 
 const AddNewEntry: React.FC<Props> = ({ handleNewTask }) => {
   const [task, setTask] = useState<taskT>({
     note: "",
-    time: 0,
+    time: "",
   });
   const [active, setActive] = useState<boolean>(false);
 

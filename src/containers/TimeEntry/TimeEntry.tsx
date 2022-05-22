@@ -5,7 +5,7 @@ import UserTimeEntryList from "../../components/UserTimeEntryList/UserTimeEntryL
 
 type taskT = {
   note: string;
-  time: number;
+  time: string | number;
 };
 
 const TimeEntry: React.FC = () => {
@@ -35,6 +35,8 @@ const TimeEntry: React.FC = () => {
   };
 
   const handleNewTask = (task: taskT) => {
+    const inputTxtCheck = task.note.trim();
+    if (inputTxtCheck.length < 3 || task.time < 1) return;
     let newTask = {
       data: {
         type: "time_entries",
