@@ -18,7 +18,6 @@ export const apiDELETE = async (url: string) => {
       "X-Organization-Id": "20541",
     },
   });
-  return data.json();
 };
 
 export const apiPOST = async (url: string, newTask: any) => {

@@ -3,6 +3,11 @@ import { apiDELETE, apiGET, apiPOST } from "../../api";
 import AddNewEntry from "../../components/AddNewEntry/AddNewEntry";
 import UserTimeEntryList from "../../components/UserTimeEntryList/UserTimeEntryList";
 
+type taskT = {
+  note: string;
+  time: number;
+};
+
 const TimeEntry: React.FC = () => {
   const [personId, setPersonId] = useState<number>();
   const [userTimeEntryList, setUserTimeEntryList] = useState<[]>([]);
@@ -20,12 +25,13 @@ const TimeEntry: React.FC = () => {
   }, [personId]);
 
   const handleDeleteTimeEntry = (timeEntryId: string) => {
-    apiDELETE(`https://api.productive.io/api/v2/time_entries/${timeEntryId}`);
-  };
-
-  type taskT = {
-    note: string;
-    time: number;
+    apiDELETE(
+      `https://api.productive.io/api/v2/time_entries/${timeEntryId}`
+    ).then((res) =>
+      apiGET(
+        `https://api.productive.io/api/v2/time_entries?person_id=${personId}&after&before`
+      ).then((res) => setUserTimeEntryList(res.data))
+    );
   };
 
   const handleNewTask = (task: taskT) => {
@@ -53,7 +59,15 @@ const TimeEntry: React.FC = () => {
         },
       },
     };
-    apiPOST(`https://api.productive.io/api/v2/time_entries`, newTask);
+    apiPOST(`https://api.productive.io/api/v2/time_entries`, newTask).then(
+      (res) => {
+        if (!res.errors) {
+          apiGET(
+            `https://api.productive.io/api/v2/time_entries?person_id=${personId}&after&before`
+          ).then((res) => setUserTimeEntryList(res.data));
+        }
+      }
+    );
   };
 
   return (
