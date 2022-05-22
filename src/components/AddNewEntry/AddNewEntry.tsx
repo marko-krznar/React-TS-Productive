@@ -53,7 +53,19 @@ const AddNewEntry: React.FC<Props> = ({ handleNewTask }) => {
             })
           }
         />
-        <button onClick={() => handleNewTask(task)}>Add</button>
+        <button
+          onClick={() => {
+            handleNewTask(task);
+            setTask({ note: "", time: "" });
+          }}
+          className={
+            task.note.trim().length < 3 || task.time < 1
+              ? "btn is-disabled"
+              : "btn"
+          }
+        >
+          Add
+        </button>
       </div>
     </div>
   );
