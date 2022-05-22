@@ -1,0 +1,13 @@
+.block--entry-item {
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  .note {
+    display: inline-block;
+    flex-grow: 1;
+  }
+  > span {
+    margin-right: 2rem;
+  }
+}

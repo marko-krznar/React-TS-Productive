@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.scss";
 
 interface Props {
   timeEntry: {
@@ -18,11 +19,17 @@ const UserTimeEntry: React.FC<Props> = ({
   handleDeleteTimeEntry,
 }) => {
   return (
-    <div>
-      <span>{timeEntry.attributes.note}</span>
-      <span>{timeEntry.attributes.time} min</span>
-      <span>{timeEntry.attributes.date}</span>
-      <button onClick={() => handleDeleteTimeEntry(timeEntry.id)}>x</button>
+    <div className="block block--entry-item d-flex align-items-center justify-content-between">
+      <span className="note">{timeEntry.attributes.note}</span>
+      <span className="time">{timeEntry.attributes.time} min</span>
+      <span className="date">{timeEntry.attributes.date}</span>
+      <button
+        onClick={() => handleDeleteTimeEntry(timeEntry.id)}
+        className="d-flex align-items-center"
+      >
+        <span>Delete note</span>
+        <span className="material-symbols-outlined">close</span>
+      </button>
     </div>
   );
 };

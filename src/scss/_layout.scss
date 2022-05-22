@@ -1,0 +1,47 @@
+$alignments: (
+  between: space-between,
+  end: flex-end,
+  start: flex-start,
+  center: center,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+.d-flex {
+  display: flex;
+}
+.direction-column {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+html * {
+  box-sizing: border-box;
+}
+.block {
+  margin: 2rem 0;
+}
+
+@each $key, $value in $alignments {
+  .justify-content-#{$key} {
+    justify-content: $value;
+  }
+  .align-items-#{$key} {
+    align-items: $value;
+  }
+}
+
+.block--container {
+  padding: 0 2rem;
+}
+
+@media (max-width: 576px) {
+  .m--flex-direction-column {
+    flex-direction: column;
+    > * {
+      flex: 1 1 100%;
+    }
+  }
+}

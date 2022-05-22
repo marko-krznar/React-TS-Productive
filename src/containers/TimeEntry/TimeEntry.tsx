@@ -57,7 +57,7 @@ const TimeEntry: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
       <AddNewEntry handleNewTask={handleNewTask} />
       {userTimeEntryList.map((timeEntry, i) => (
         <UserTimeEntryList
@@ -66,7 +66,7 @@ const TimeEntry: React.FC = () => {
           handleDeleteTimeEntry={handleDeleteTimeEntry}
         />
       ))}
-    </div>
+    </>
   );
 };
 
