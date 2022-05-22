@@ -7,3 +7,29 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  .block--add-new-entry {
+    > button {
+      flex-grow: 1;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    > div.is-active {
+      flex-grow: 1;
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .block--add-new-entry {
+    > div.is-active {
+      input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@ const UserTimeEntry: React.FC<Props> = ({
   handleDeleteTimeEntry,
 }) => {
   return (
-    <div className="block block--entry-item d-flex align-items-center justify-content-between">
+    <div className="block block--entry-item d-flex align-items-center justify-content-between flex-wrap">
       <span className="note">{timeEntry.attributes.note}</span>
       <span className="time">{timeEntry.attributes.time} min</span>
       <span className="date">{timeEntry.attributes.date}</span>

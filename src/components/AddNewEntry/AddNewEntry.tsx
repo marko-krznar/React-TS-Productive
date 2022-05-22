@@ -22,7 +22,7 @@ const AddNewEntry: React.FC<Props> = ({ handleNewTask }) => {
   };
 
   return (
-    <div className="block block--add-new-entry d-flex align-items-center">
+    <div className="block block--add-new-entry d-flex align-items-center flex-wrap">
       <button
         onClick={handleToggleFormNewNote}
         className="d-flex align-items-center"

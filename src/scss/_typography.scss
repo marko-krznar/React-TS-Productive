@@ -35,6 +35,12 @@ li {
   line-height: 1.5;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 576px) {
   p,
   li {

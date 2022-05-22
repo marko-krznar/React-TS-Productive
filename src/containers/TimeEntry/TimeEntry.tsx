@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { apiDELETE, apiGET, apiPOST } from "../../api";
 import AddNewEntry from "../../components/AddNewEntry/AddNewEntry";
 import UserTimeEntryList from "../../components/UserTimeEntryList/UserTimeEntryList";
+import "./style.scss";
 
 type taskT = {
   note: string;

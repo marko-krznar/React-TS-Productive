@@ -3,11 +3,77 @@
   background: #fff;
   padding: 2rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  position: relative;
   .note {
     display: inline-block;
     flex-grow: 1;
+    width: 100%;
+    max-width: 50%;
+  }
+  .time,
+  .date {
+    width: 100%;
+    max-width: 100px;
+    text-align: right;
   }
   > span {
     margin-right: 2rem;
+  }
+  button {
+    min-width: 180px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .block--entry-item .note {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .block--entry-item {
+    > button {
+      padding: 1em;
+      min-width: unset;
+      > span:first-of-type {
+        display: none;
+      }
+      > span:last-of-type {
+        margin-left: 0;
+      }
+    }
+    .note {
+      max-width: 40%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .block--entry-item {
+    > button {
+      padding: 0.25em;
+      position: absolute;
+      top: -1rem;
+      right: -0.5rem;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+    }
+    > span {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+    .note,
+    .time,
+    .date {
+      max-width: 100%;
+      text-align: left;
+    }
+    .note {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
   }
 }
