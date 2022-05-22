@@ -10,7 +10,7 @@ export const apiGET = async (url: string) => {
 };
 
 export const apiDELETE = async (url: string) => {
-  const data = await fetch(url, {
+  await fetch(url, {
     method: "delete",
     headers: {
       "Content-Type": "application/vnd.api+json",
