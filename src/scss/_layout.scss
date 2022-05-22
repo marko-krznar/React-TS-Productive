@@ -20,8 +20,14 @@ $alignments: (
 html * {
   box-sizing: border-box;
 }
+
 .block {
   margin: 2rem 0;
+}
+
+.content {
+  padding: 2rem 3rem;
+  background: #f7f9fc;
 }
 
 @each $key, $value in $alignments {

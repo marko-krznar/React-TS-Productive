@@ -21,6 +21,8 @@ button,
   }
   &:hover {
     cursor: pointer;
+    color: #5d2bff;
+    background: #f7f9fc;
     transition: 0.2s linear;
     .material-symbols-outlined {
       transform: rotate(180deg);
@@ -31,6 +33,19 @@ button,
     pointer-events: none;
     transition: 0.2s linear;
     opacity: 0.4;
+  }
+  &.btn--toggle-theme {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    z-index: 1;
+    padding: 0;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    > .material-symbols-outlined {
+      margin-left: 0;
+    }
   }
 }
 input {
